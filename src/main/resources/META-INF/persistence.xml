@@ -13,9 +13,9 @@
         <properties>    
             <!-- Propriedades JDBC -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/futeboldb?useSSL=false"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/futeboldb"/>
+	    <property name="javax.persistence.jdbc.user" value="futebol"/>
+	    <property name="javax.persistence.jdbc.password" value="futebol"/>
 
             <!-- Configurações específicas do Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
