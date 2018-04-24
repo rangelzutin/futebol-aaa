@@ -1,27 +1,33 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-      			        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+      			        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
 
-    <!-- unidade de persistencia com o nome futebol -->
-    <persistence-unit name="futeboldb-unit">
-        <!-- Implementação do JPA, no nosso caso Hibernate -->
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!-- Aqui são listadas todas as entidades -->
-        <class>br.com.aaa.futebol.modelo.Jogador</class>
+	<!-- unidade de persistencia com o nome futebol -->
+	<persistence-unit name="futeboldb-unit">
+		<!-- Implementação do JPA, no nosso caso Hibernate -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- Aqui são listadas todas as entidades -->
+		<class>br.com.aaa.futebol.modelo.Jogador</class>
 
-        <properties>    
-            <!-- Propriedades JDBC -->
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/futeboldb"/>
-	    <property name="javax.persistence.jdbc.user" value="futebol"/>
-	    <property name="javax.persistence.jdbc.password" value="futebol"/>
+		<properties>
+			<!-- Propriedades JDBC -->
+			<!-- <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/futeboldb" />
+			<property name="javax.persistence.jdbc.user" value="futebol" />
+			<property name="javax.persistence.jdbc.password" value="futebol" />-->
+			
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_7785112de4b1021" />
+			<property name="javax.persistence.jdbc.user" value="b568b6a1a158d3" />
+			<property name="javax.persistence.jdbc.password" value="729a3f43" />
 
-            <!-- Configurações específicas do Hibernate -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="false"/>
-        </properties>
-    </persistence-unit>
+			<!-- Configurações específicas do Hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+		</properties>
+	</persistence-unit>
 </persistence>
