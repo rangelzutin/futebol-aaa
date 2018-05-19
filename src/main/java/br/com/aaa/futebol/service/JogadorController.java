@@ -1,6 +1,5 @@
 package br.com.aaa.futebol.service;
 
-import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.EntityManager;

@@ -30,7 +30,7 @@ private EntityManager manager;
 		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
 		CriteriaQuery<Jogador> query = criteriaBuilder.createQuery(Jogador.class);
 		Root<Jogador> root = query.from(Jogador.class);
-		query.orderBy(criteriaBuilder.desc(root.get("dataUltimoJogo")), criteriaBuilder.asc(root.get("ausencia")));
+		query.orderBy(criteriaBuilder.asc(root.get("ausenciaTotal")), criteriaBuilder.asc(root.get("ultimaAusencia")));
 	    TypedQuery<Jogador> typedQuery = manager.createQuery(query);
 	    return typedQuery.getResultList();
 	}

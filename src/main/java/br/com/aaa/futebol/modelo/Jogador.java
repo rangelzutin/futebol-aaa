@@ -1,14 +1,10 @@
 package br.com.aaa.futebol.modelo;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,17 +25,18 @@ public class Jogador {
 	
 	private String nome;
 	
-	private int ausencia;
-	private int presenca;
+	private int ausenciaTrimestre;
+	private int ausenciaAcumulada;
+	private int ausenciaTotal;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date ultimaAusencia;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date ultimaPresenca;
 	
 	@Enumerated(EnumType.STRING)
 	private Posicao posicao;
-	
-	@Temporal(TemporalType.DATE)
-	private Date dataUltimoJogo;
-	
-	@ElementCollection(fetch = FetchType.EAGER)
-	private List<Date> listaPresenca = new ArrayList<>();
 	
 	public Integer getId() {
 		return id;
@@ -57,20 +54,44 @@ public class Jogador {
 		this.nome = nome;
 	}
 
-	public int getAusencia() {
-		return ausencia;
+	public int getAusenciaTrimestre() {
+		return ausenciaTrimestre;
 	}
 
-	public void setAusencia(int ausencia) {
-		this.ausencia = ausencia;
+	public void setAusenciaTrimestre(int ausenciaTrimestre) {
+		this.ausenciaTrimestre = ausenciaTrimestre;
 	}
 
-	public int getPresenca() {
-		return presenca;
+	public int getAusenciaAcumulada() {
+		return ausenciaAcumulada;
 	}
 
-	public void setPresenca(int presenca) {
-		this.presenca = presenca;
+	public void setAusenciaAcumulada(int ausenciaAcumulada) {
+		this.ausenciaAcumulada = ausenciaAcumulada;
+	}
+
+	public int getAusenciaTotal() {
+		return ausenciaTotal;
+	}
+
+	public void setAusenciaTotal(int ausenciaTotal) {
+		this.ausenciaTotal = ausenciaTotal;
+	}
+
+	public Date getUltimaAusencia() {
+		return ultimaAusencia;
+	}
+
+	public void setUltimaAusencia(Date ultimaAusencia) {
+		this.ultimaAusencia = ultimaAusencia;
+	}
+
+	public Date getUltimaPresenca() {
+		return ultimaPresenca;
+	}
+
+	public void setUltimaPresenca(Date ultimaPresenca) {
+		this.ultimaPresenca = ultimaPresenca;
 	}
 
 	public Posicao getPosicao() {
@@ -79,21 +100,5 @@ public class Jogador {
 
 	public void setPosicao(Posicao posicao) {
 		this.posicao = posicao;
-	}
-	
-	public Date getDataUltimoJogo() {
-		return dataUltimoJogo;
-	}
-
-	public void setDataUltimoJogo(Date dataUltimoJogo) {
-		this.dataUltimoJogo = dataUltimoJogo;
-	}
-
-	public List<Date> getListaPresenca() {
-		return listaPresenca;
-	}
-
-	public void setListaPresenca(List<Date> listaPresenca) {
-		this.listaPresenca = listaPresenca;
 	}
 }
