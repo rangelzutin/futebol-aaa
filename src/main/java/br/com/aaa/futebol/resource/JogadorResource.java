@@ -54,4 +54,15 @@ public class JogadorResource {
 	
 	}
 	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/atualiza_jogadores")
+	public Response atualizaJogadores(List<Jogador> jogadores) {
+	
+		String result = "Record entered: "+ jogadores;
+		System.out.println(jogadores);
+		return Response.status(201).entity(result).build();
+	
+	}
+	
 }
