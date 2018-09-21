@@ -34,4 +34,15 @@ private EntityManager manager;
 	    TypedQuery<Jogador> typedQuery = manager.createQuery(query);
 	    return typedQuery.getResultList();
 	}
+	
+	public List<Jogador> atualizaJogadores(List<Jogador> jogadores) {
+		jogadores.forEach(jogador -> {
+			Jogador jogador2 = this.getJogador(jogador.getId());
+			int pontos = jogador.getPontos();
+			pontos = pontos + 2;
+			jogador2.setPontos(pontos);
+			this.persisteJogador(jogador2);
+		});
+		return jogadores;
+	}
 }

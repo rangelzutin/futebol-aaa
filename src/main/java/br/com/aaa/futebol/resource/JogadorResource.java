@@ -59,8 +59,7 @@ public class JogadorResource {
 	@Path("/atualiza_jogadores")
 	public Response atualizaJogadores(List<Jogador> jogadores) {
 	
-		String result = "Record entered: "+ jogadores;
-		System.out.println(jogadores);
+		String result = "Record entered: "+ new JogadorController().atualizaJogadores(jogadores);;
 		return Response.status(201).entity(result).build();
 	
 	}

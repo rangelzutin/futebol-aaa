@@ -39,4 +39,18 @@ public class JogadorController {
 		
 		return listaJogadores;
 	}
+	
+	public List<Jogador> atualizaJogadores(List<Jogador> jogadores) {
+		
+		EntityManager manager = new JPAFactory().getEntityManager();
+		manager.getTransaction().begin();
+		JogadorDAO dao = new JogadorDAO(manager);
+		
+		dao.atualizaJogadores(jogadores);
+		
+		manager.getTransaction().commit();
+		manager.close();
+		
+		return jogadores;
+	}
 }
